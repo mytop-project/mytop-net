@@ -1,7 +1,7 @@
 # :sitecheck
 
 Browser checks (a Cloudflare challenge, DDoS-Guard), recognised the same way in droidtop and Enginehost. Plain JVM,
-no Android API. Droidtop/tracker#751 (lifted from droidtop's `SiteChecks`, #600).
+no Android API. mytop-project/tracker#751 (lifted from droidtop's `SiteChecks`, #600).
 
 The owner: "don't force past a cloudflare approval, but do let the browser try to solve the captcha itself if it's an
 option". So nothing here solves anything. It recognises a check, keeps what passing one earned, and names the two ways

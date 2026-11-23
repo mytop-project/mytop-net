@@ -1,4 +1,4 @@
-//! The local Tailscale node, through its LocalAPI (Droidtop/tracker#645). The owner, 2026-11-05: "We control
+//! The local Tailscale node, through its LocalAPI (mytop-project/tracker#645). The owner, 2026-11-05: "We control
 //! tailscale like any other VPN" and "Look at the tailscale code, ktailctl ... We're building a local tailscale
 //! control plugin". So this is a client of the node the person already runs, never a node of its own:
 //!
@@ -59,7 +59,7 @@ impl Tailnet {
         matches!(self, Tailnet::Present { state, .. } if state == "Running")
     }
 
-    /// The addresses of every online peer, for a program to reach them at (lib-kdeconnect's `addresses`).
+    /// The addresses of every online peer, for a program to reach them at (mytop-kdeconnect's `addresses`).
     pub fn online_addresses(&self) -> Vec<String> {
         match self {
             Tailnet::Present { peers, .. } if self.running() => {

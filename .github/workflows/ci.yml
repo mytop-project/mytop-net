@@ -1,11 +1,11 @@
 name: CI
 
-# lib-net's own tests, then every program that uses it, built and tested against this commit
-# (Droidtop/tracker#867 D2: "each repo's CI builds and tests every app that uses it"). Each program says
+# mytop-net's own tests, then every program that uses it, built and tested against this commit
+# (mytop-project/tracker#867 D2: "each repo's CI builds and tests every app that uses it"). Each program says
 # how it builds in its own library-check.yml; this only names the submodule and the commit. Work lands on
 # main from ci/* branches once this is green.
 #
-# droidtop and Enginehost take this library as vendor/lib-net, pointing at this repository, so each job
+# droidtop and Enginehost take this library as vendor/mytop-net, pointing at this repository, so each job
 # names that submodule and the commit.
 on:
   push:
@@ -41,7 +41,7 @@ jobs:
       - name: Test every module, and check its public API against its dump
         run: ./gradlew test apiCheck --stacktrace
 
-  # The public API stays compatible within a version (Droidtop/tracker#867, owner 2026-11-04: "I should be able to
+  # The public API stays compatible within a version (mytop-project/tracker#867, owner 2026-11-04: "I should be able to
   # bump the version number and immediately get the benefit"): an API line removed since the last release fails
   # unless lib.version is a breaking version and the CHANGELOG says what broke.
   api-compat:
@@ -53,7 +53,7 @@ jobs:
           persist-credentials: false
       - run: scripts/check-api-compat.sh
 
-  # The Rust crates (Cargo.toml; Droidtop/tracker#573's share client, net-remote): format, lints and tests, then a
+  # The Rust crates (Cargo.toml; mytop-project/tracker#573's share client, net-remote): format, lints and tests, then a
   # build for both Android ABIs the programs ship. net-remote's WebDAV backend is tested against a real WebDAV
   # server (wsgidav) started here; crates/remote/tests/webdav_live.rs. The user and password are this test server's
   # own, made up here.
@@ -305,18 +305,18 @@ jobs:
           done
           echo "$checked crates compared"
 
-  # droidtop vendors this library as vendor/lib-net, pointing at this repository (its .gitmodules).
+  # droidtop vendors this library as vendor/mytop-net, pointing at this repository (its .gitmodules).
   droidtop:
-    uses: Droidtop/droidtop/.github/workflows/library-check.yml@main
+    uses: mytop-project/droidtop/.github/workflows/library-check.yml@main
     with:
-      submodule: vendor/lib-net
+      submodule: vendor/mytop-net
       ref: ${{ github.sha }}
 
-  # Enginehost vendors this library as vendor/lib-net, pointing at this repository (its .gitmodules).
+  # Enginehost vendors this library as vendor/mytop-net, pointing at this repository (its .gitmodules).
   enginehost:
-    uses: Droidtop/enginehost/.github/workflows/library-check.yml@main
+    uses: mytop-project/enginehost/.github/workflows/library-check.yml@main
     with:
-      submodule: vendor/lib-net
+      submodule: vendor/mytop-net
       ref: ${{ github.sha }}
 
   # A green main whose version has no tag yet is released: CI tags v<version> on this commit, and that tag is

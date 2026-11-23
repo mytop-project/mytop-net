@@ -1,13 +1,13 @@
-# lib-net
+# mytop-net
 
 Networking, trust and reporting for droidtop and Enginehost, and later Pythia and the agent: one of the shared
-library families of Droidtop/tracker#867. The libraries belong to no program; each program has its own scaffold
+library families of mytop-project/tracker#867. The libraries belong to no program; each program has its own scaffold
 and pins a tagged release of each library it uses (#867 D2).
 
 This is Droidtop/droidtop-shared, moved here with its history (#867 step 1: "reuse and contract first, rewrites
 second"). Its modules are unchanged and keep their package, `dev.droidtop.shared.*`, so nothing that uses them is
-edited. `:version` and `:launch-contract` are not networking; they stay here until the Kotlin side of lib-games
-and lib-engines exists. Every module is plain JVM: the Kotlin standard library and `java.security` only, no
+edited. `:version` and `:launch-contract` are not networking; they stay here until the Kotlin side of mytop-games
+and mytop-engines exists. Every module is plain JVM: the Kotlin standard library and `java.security` only, no
 Android API, so its tests run on a build machine with no device and no SDK.
 
 | Module | Owns |
@@ -19,12 +19,12 @@ Android API, so its tests run on a build machine with no device and no SDK.
 | [`:trust`](trust/README.md) | Checking signatures: the certificate-chain JWS both apps use, and SHA-256 helpers. Pins no key |
 | `:testpki` | Test-only: throwaway certificate chains and signatures for the tests |
 
-**Rust crates** (Cargo workspace at the root; Droidtop/tracker#867 D3):
+**Rust crates** (Cargo workspace at the root; mytop-project/tracker#867 D3):
 
 | Crate | Owns |
 |---|---|
-| [`net-remote`](crates/remote) | The person's own shares and cloud storage behind one interface, `Remote`: list, stat, read, ranged read, a write that lands in one step, rename, remove one file, make folders. Backends so far: a local folder, WebDAV (Nextcloud, ownCloud, most NAS), SFTP (any SSH server, its key pinned), S3-compatible storage and SMB 2/3 (libsmb2, vendored; see `NOTICES.md`). A share is a network resource for many uses; lib-sync uses it as one sync backend (Droidtop/tracker#573) |
-| [`net-tailscale`](crates/tailscale) | The local Tailscale node, read through tailscaled's LocalAPI as Tailscale's own apps and ktailctl do: whether a tailnet is up, this device's addresses and its peers with their tailnet addresses. No account token and no control server; absent when tailscaled is not running (Droidtop/tracker#645) |
+| [`net-remote`](crates/remote) | The person's own shares and cloud storage behind one interface, `Remote`: list, stat, read, ranged read, a write that lands in one step, rename, remove one file, make folders. Backends so far: a local folder, WebDAV (Nextcloud, ownCloud, most NAS), SFTP (any SSH server, its key pinned), S3-compatible storage and SMB 2/3 (libsmb2, vendored; see `NOTICES.md`). A share is a network resource for many uses; mytop-sync uses it as one sync backend (mytop-project/tracker#573) |
+| [`net-tailscale`](crates/tailscale) | The local Tailscale node, read through tailscaled's LocalAPI as Tailscale's own apps and ktailctl do: whether a tailnet is up, this device's addresses and its peers with their tailnet addresses. No account token and no control server; absent when tailscaled is not running (mytop-project/tracker#645) |
 
 Licence: GPL-3.0 (see `LICENSE`).
 
@@ -37,7 +37,7 @@ Enginehost. Work lands on `main` from `ci/*` branches once CI is green.
 
 ## Versions
 
-**The public API stays compatible within a version** (Droidtop/tracker#867, owner 2026-11-04: "I should be able to
+**The public API stays compatible within a version** (mytop-project/tracker#867, owner 2026-11-04: "I should be able to
 bump the version number and immediately get the benefit"). A program takes a fix by moving its pin, with no change to
 its own code. Each module's public API is checked in as `<module>/api/<module>.api` (the Kotlin binary-compatibility
 validator): `./gradlew apiCheck` fails when the API is not its dump, and `./gradlew apiDump` rewrites it.

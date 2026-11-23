@@ -8,7 +8,7 @@ package dev.droidtop.shared.version
  * Order is by the dotted [parts] first, then by [build]. The build is the
  * per-version counter a plugin release carries after a dash: the first
  * published build of a declared version is `-1`, the next `-2`, and a new
- * declared version starts again at `-1` (Droidtop/tracker#126). A version
+ * declared version starts again at `-1` (mytop-project/tracker#126). A version
  * without a build compares as build 0, so 1.0.0-N is the 1.0.0 release, not
  * a pre-release below it, and it sorts above a bare 1.0.0.
  *

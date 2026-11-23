@@ -21,7 +21,7 @@ class GitHubClient(
     private val downloadTimeouts: Timeouts = Timeouts(20_000, 120_000),
     /**
      * Told of every answer: the address (query cut), the status, and `X-RateLimit-Remaining` when GitHub sent it. An app logs
-     * from here, so a refresh that runs dry says so in its own log as well as on screen (Droidtop/tracker#550). Never given
+     * from here, so a refresh that runs dry says so in its own log as well as on screen (mytop-project/tracker#550). Never given
      * a header or the token.
      */
     private val onResponse: (url: String, status: Int, rateLimitRemaining: String?) -> Unit = { _, _, _ -> },

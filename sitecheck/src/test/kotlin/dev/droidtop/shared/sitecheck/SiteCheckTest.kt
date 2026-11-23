@@ -6,7 +6,7 @@ import org.junit.Assert.assertNull
 import org.junit.Assert.assertTrue
 import org.junit.Test
 
-/** A site that checks the browser first, and the clearance passing it earns (Droidtop/tracker#600, #751). */
+/** A site that checks the browser first, and the clearance passing it earns (mytop-project/tracker#600, #751). */
 class SiteCheckTest {
     private fun page(text: String) = text.toByteArray()
 

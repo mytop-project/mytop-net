@@ -12,7 +12,7 @@ import org.junit.Test
 
 /**
  * The certificate signature format (docs/SPEC.md 12a "Signatures: certificate chains to Droidtop Core",
- * Droidtop/tracker#550). Every key and certificate here is generated in the test; Core is a stand-in.
+ * mytop-project/tracker#550). Every key and certificate here is generated in the test; Core is a stand-in.
  */
 class ChainSignatureTest {
     private val ucmRootKey = TestPki.rsa()
@@ -226,7 +226,7 @@ class ChainSignatureTest {
         assertNull(ChainSignature.parseSpki("not a key"))
     }
 
-    /** A key on another 256-bit curve is refused: secp256k1 has a 256-bit field too, and the contract says P-256 (Droidtop/tracker#769). */
+    /** A key on another 256-bit curve is refused: secp256k1 has a 256-bit field too, and the contract says P-256 (mytop-project/tracker#769). */
     @Test
     fun `an EC key on another 256-bit curve is not accepted`() {
         val p = java.math.BigInteger("FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFEFFFFFC2F", 16)

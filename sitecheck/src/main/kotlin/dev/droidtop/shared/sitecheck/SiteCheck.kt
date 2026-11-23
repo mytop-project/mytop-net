@@ -3,8 +3,8 @@ package dev.droidtop.shared.sitecheck
 /**
  * A site that answers with a browser check (a Cloudflare challenge, DDoS-Guard) instead of the page: how to tell one
  * from the page, which cookies are the check's clearance, and when a web view has passed it. Pure, with no Android in
- * it, so droidtop and Enginehost tell a check the same way (Droidtop/tracker#751; lifted from droidtop's `SiteChecks`,
- * Droidtop/tracker#600).
+ * it, so droidtop and Enginehost tell a check the same way (mytop-project/tracker#751; lifted from droidtop's `SiteChecks`,
+ * mytop-project/tracker#600).
  *
  * The owner: "f95 has gotten more aggressive with cloudflare filtering. F95checker has gotten better at allowing users
  * to solve the captcha. we need to do the same". Nothing here solves a check: it only recognises one. Solving it is
@@ -58,7 +58,7 @@ object SiteCheck {
     /**
      * [header] with [extra]'s cookies added; either may be null. A check's clearance in [extra] replaces one of the same
      * name in [header]: [extra] is the newest the person earned, and a signed-in session kept from before carries an
-     * older `cf_clearance` that made the site ask again right after a pass (Droidtop/tracker#600). Any other cookie
+     * older `cf_clearance` that made the site ask again right after a pass (mytop-project/tracker#600). Any other cookie
      * [header] already names keeps its own value.
      */
     fun mergeCookies(header: String?, extra: String?): String? {

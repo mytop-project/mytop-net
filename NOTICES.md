@@ -1,6 +1,6 @@
-# Third-party code in lib-net
+# Third-party code in mytop-net
 
-lib-net is GPL-3.0-only (see `LICENSE`). Code from other projects that it vendors or builds in is listed here, with
+mytop-net is GPL-3.0-only (see `LICENSE`). Code from other projects that it vendors or builds in is listed here, with
 its licence. Each one's own licence files and copyright notices are kept as they came, in its folder.
 
 ## libsmb2
@@ -20,5 +20,5 @@ its licence. Each one's own licence files and copyright notices are kept as they
   - `sha1.c`, `usha.c` and the other SHA files: the RFC 4634 reference code.
 - **Not built:** `lib/krb5-wrapper.c` (Kerberos), and the `utils/`, `examples/` and `tests/` folders, which `COPYING`
   licenses separately.
-- **Approved by the owner,** 2026-11-05 (Droidtop/tracker#573): "gotcha. Then yeah, go ahead"; "I've approved libsmb
+- **Approved by the owner,** 2026-11-05 (mytop-project/tracker#573): "gotcha. Then yeah, go ahead"; "I've approved libsmb
   as a vendored smb implementation".

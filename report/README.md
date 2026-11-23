@@ -1,7 +1,7 @@
 # :report
 
 A bug reporter that needs no permission of its own. Plain JVM, no Android API. Owner direction on
-Droidtop/tracker#655: the person previews the whole report and chooses what goes in; the report is
+mytop-project/tracker#655: the person previews the whole report and chooses what goes in; the report is
 one model with pluggable senders; no authenticating key ships in an app.
 
 **What goes in.** Only what an app can read without a permission: its own logs and crash notes, a

@@ -20,7 +20,7 @@ import kotlinx.serialization.json.jsonObject
 
 /**
  * droidtop's one signature format (docs/SPEC.md 12a "Signatures: certificate
- * chains to droidtop's signing root", Droidtop/tracker#550): a JWS (RFC 7515) in compact
+ * chains to droidtop's signing root", mytop-project/tracker#550): a JWS (RFC 7515) in compact
  * serialization whose protected header carries the signing certificate chain
  * as `x5c`, verified up to one trust [Anchor] and no further. For droidtop's
  * own signatures the anchor is the signing root the app pins (an

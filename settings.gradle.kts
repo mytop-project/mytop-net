@@ -1,4 +1,4 @@
-rootProject.name = "lib-net"
+rootProject.name = "mytop-net"
 
 pluginManagement {
     repositories {

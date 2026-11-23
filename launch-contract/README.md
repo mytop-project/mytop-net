@@ -17,5 +17,5 @@ cannot pass by comparing a constant with itself. Changing one needs both apps to
 release first.
 
 Not here: the engine, family and context vocabulary (`renpy`, `rpgmaker`/`vxace`, ...). It is plugin-defined, so
-a closed list here would be wrong; the shared conformance vectors of Droidtop/tracker#205 hold what droidtop and
+a closed list here would be wrong; the shared conformance vectors of mytop-project/tracker#205 hold what droidtop and
 Enginehost agree on for detection.
