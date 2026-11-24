@@ -292,6 +292,11 @@ jobs:
           set -eu
           last="$(git describe --tags --abbrev=0 --match 'v[0-9]*' HEAD 2>/dev/null || true)"
           if [ -z "$last" ]; then echo "nothing released yet; nothing to compare"; exit 0; fi
+          # The baseline is a checkout of the release with its submodules: net-remote's build.rs builds
+          # vendor/libsmb2, which cargo-semver-checks' own clone of the tag does not carry.
+          baseline="$RUNNER_TEMP/baseline"
+          git worktree add --detach "$baseline" "$last"
+          git -C "$baseline" submodule update --init --depth 1
           checked=0
           for manifest in crates/*/Cargo.toml; do
             name="$(sed -n 's/^name = "\(.*\)"$/\1/p' "$manifest" | head -1)"
@@ -300,7 +305,7 @@ jobs:
               continue
             fi
             echo "comparing $name with $last"
-            cargo semver-checks check-release -p "$name" --baseline-rev "$last"
+            cargo semver-checks check-release -p "$name" --baseline-root "$baseline"
             checked=$((checked + 1))
           done
           echo "$checked crates compared"
