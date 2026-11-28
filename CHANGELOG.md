@@ -3,6 +3,11 @@
 All notable changes to mytop-net (droidtop-shared until 0.2.0). Versions follow [Semantic Versioning](https://semver.org/)
 (in 0.x, only a new minor version may break the API; CI enforces it).
 
+## [0.2.7]
+
+### Added
+- `net.BoundedStreamCopy`: one bounded input/output copier shared by Droidtop and Browser response transfers. It validates exact-size EOF and hard byte limits, preserves caller cancellation, and leaves streams, destinations, tokens and permission policy with each application.
+
 ## [0.2.6]
 
 ### Added

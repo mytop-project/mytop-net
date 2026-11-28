@@ -1,6 +1,6 @@
 # :net
 
-The one way either app talks to GitHub. Plain JVM (`HttpURLConnection`, `kotlinx-serialization-json`);
+Shared network transfer primitives and the one way either app talks to GitHub. Plain JVM (`HttpURLConnection`, `kotlinx-serialization-json`);
 no Android API, and nothing in it stores a token.
 
 - `GitHubAuth`: which requests may carry the user's token and how a request with one is opened.
@@ -17,6 +17,10 @@ no Android API, and nothing in it stores a token.
 - `GitHubHttpException`: a non-success status with `X-RateLimit-Remaining` and `X-RateLimit-Reset`,
   which is what tells "asked too often" from "will not answer you".
 - `GitHubReleases`: reading the `releases` JSON (`Release`, `ReleaseAsset`) and the `Link` header.
+- `BoundedStreamCopy`: copy an already-owned input to an output with a hard byte budget and optional exact length.
+  A short body, excess bytes or a caller hook failure cannot count as success. Hooks own cancellation, deadlines,
+  destination checks and progress. The helper never opens connections, retries, closes or flushes streams, stores
+  credentials, or decides an app's permissions. Droidtop's body reader and Browser's response writer consume it.
 
 Where a token is kept stays with each app (Android Keystore and a private preferences file, under
 that app's own alias and file name, never in a backup): it needs the Android SDK, which no module

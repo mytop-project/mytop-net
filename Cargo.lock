@@ -1150,7 +1150,7 @@ dependencies = [
 
 [[package]]
 name = "net-remote"
-version = "0.2.6"
+version = "0.2.7"
 dependencies = [
  "base64 0.22.1",
  "cc",
@@ -1169,7 +1169,7 @@ dependencies = [
 
 [[package]]
 name = "net-tailscale"
-version = "0.2.6"
+version = "0.2.7"
 dependencies = [
  "serde_json",
  "thiserror 1.0.69",

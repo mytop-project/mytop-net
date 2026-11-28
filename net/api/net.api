@@ -1,3 +1,9 @@
+public final class dev/droidtop/shared/net/BoundedStreamCopy {
+	public static final field INSTANCE Ldev/droidtop/shared/net/BoundedStreamCopy;
+	public final fun copy (Ljava/io/InputStream;Ljava/io/OutputStream;JJLkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;)J
+	public static synthetic fun copy$default (Ldev/droidtop/shared/net/BoundedStreamCopy;Ljava/io/InputStream;Ljava/io/OutputStream;JJLkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)J
+}
+
 public final class dev/droidtop/shared/net/GitHubAuth {
 	public static final field Companion Ldev/droidtop/shared/net/GitHubAuth$Companion;
 	public static final field MAX_REDIRECTS I
